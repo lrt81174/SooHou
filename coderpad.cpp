@@ -280,11 +280,12 @@ std::string rule_billion(sVector& srNumVec) {
     return sResult;
 }
 
-void solution(unsigned int iNum) {
+std::string solution(unsigned int iNum) {
     // Please write your code here.
     string sResult;
     std::vector<unsigned int> vNum;
     unsigned int iNumLen = number_parse(iNum, vNum, sNumVec);
+
     if ((iNumLen >= 1) && (iNumLen <= 3))
         sResult = rule_embedded(sNumVec.first_hundreds);
     else if ((iNumLen >= 4) && (iNumLen <= 6))
@@ -294,12 +295,16 @@ void solution(unsigned int iNum) {
     else if ((iNumLen >= 10) && (iNumLen <= 12))
         sResult = rule_billion(sNumVec);
 
-    cout << sResult;
+    return sResult;
 }
 
 int main() {
     unsigned int number;
+
     std::cout << "Enter a number: ";
     std::cin >> number;
-    solution(number);
+
+    std::cout << solution(number);
+    
+    return 0;
 }
